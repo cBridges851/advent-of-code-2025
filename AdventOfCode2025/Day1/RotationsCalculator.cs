@@ -9,7 +9,6 @@ namespace Day1 {
             // Set initial position as 50
             var position = 50;
             var howManyTimesZeroWasHit = 0;
-            Console.WriteLine(position);
 
             // For each rotation
             foreach (var rotation in rotations) { 
@@ -22,12 +21,6 @@ namespace Day1 {
                     var calculationResult = this.CalculateLeftPosition(position, distance);
                     position = calculationResult.NewPosition;
                     howManyTimesZeroWasHit += calculationResult.HowManyTimesZeroWasHit;
-                    Console.WriteLine($"""
-                            {rotation}
-                            Position: {calculationResult.NewPosition}
-                            How Many Times Zero Was Hit: {calculationResult.HowManyTimesZeroWasHit}
-                            ---
-                        """);
                 }
 
                 // If R, add the number to position
@@ -35,12 +28,6 @@ namespace Day1 {
                     var calculationResult = this.CalculateRightPosition(position, distance);
                     position = calculationResult.NewPosition;
                     howManyTimesZeroWasHit += calculationResult.HowManyTimesZeroWasHit;
-                    Console.WriteLine($"""
-                            {rotation}
-                            Position: {calculationResult.NewPosition}
-                            How Many Times Zero Was Hit: {calculationResult.HowManyTimesZeroWasHit}
-                            ---
-                        """);
                 }
 
             }
