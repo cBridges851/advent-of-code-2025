@@ -57,7 +57,7 @@ namespace Day1 {
 
             position -= distance;
 
-            // If the position is less than 0, add it to 99
+            // If the position is less than 0, add 100 to wrap around
             if (position < 0) {
                 position += 100;
 
