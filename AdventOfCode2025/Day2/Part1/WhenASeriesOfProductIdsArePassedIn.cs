@@ -1,4 +1,4 @@
-﻿namespace Day2 {
+﻿namespace Day2.Part1 {
     public class WhenASeriesOfProductIdsArePassedIn {
         private ulong result;
 

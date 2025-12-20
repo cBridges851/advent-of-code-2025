@@ -1,4 +1,8 @@
-﻿public class InvalidIdFinder {
+﻿namespace Day2.Part1;
+
+using System.Text.RegularExpressions;
+
+public class InvalidIdFinder {
     public ulong[][] GetInvalidIdsForRange(ulong[][] ranges) {
         var invalidIdsForRanges = new List<ulong[]>();
 
@@ -28,6 +32,9 @@
             if (firstHalf == secondHalf) {
                 invalidIds.Add(i);
             }
+
+            // If length of each half is odd number, split by 1
+            // If length of each half is even number, split by 2
         }
 
         return invalidIds.ToArray();

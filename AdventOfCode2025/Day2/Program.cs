@@ -1,4 +1,6 @@
-﻿var file = "puzzleInput.txt";
+﻿using Day2.Part2;
+
+var file = "puzzleInput.txt";
 
 if (!File.Exists(file)) {
     Console.Error.WriteLine($"File not found: {file}");
