@@ -1,15 +1,8 @@
 ﻿namespace Day2.Part2;
 
-public class InvalidIdFinder {
-    public ulong[][] GetInvalidIdsForRanges(ulong[][] ranges) {
-        var invalidIdsForRanges = new List<ulong[]>();
+public class InvalidIdFinder : InvalidIdFinderBase {
 
-        return ranges
-            .Select(range => this.GetInvalidIds(range[0], range[1]))
-            .ToArray();
-    }
-
-    public ulong[] GetInvalidIds(ulong start, ulong end) {
+    public override ulong[] GetInvalidIds(ulong start, ulong end) {
         var invalidIds = new List<ulong>();
 
         // TODO: Look at how this can be solved more efficiently

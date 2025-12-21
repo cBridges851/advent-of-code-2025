@@ -12,7 +12,8 @@
 
         [Test]
         public void ThenItCorrectlyReturnsTheSumOfInvalidIds() {
-            Assert.That(this.result, Is.EqualTo(1227775554));
+            var expectedAdventOfCodeAnswer = 1227775554;
+            Assert.That(this.result, Is.EqualTo(expectedAdventOfCodeAnswer));
         }
     }
 
@@ -25,28 +26,28 @@
 
         private static readonly object[] TestCases = {
             new object[] {
-                (ulong)11, (ulong)22, new[] { (ulong)11, (ulong)22 }
+                11UL, 22UL, new[] { 11UL, 22UL }
             },
             new object[] {
-                (ulong)95, (ulong)115, new[] { (ulong)99 }
+                95UL, 115UL, new[] { 99UL }
             },
             new object[] {
-                (ulong)998, (ulong)1012, new[] { (ulong)1010 }
+                998UL, 1012UL, new[] { 1010UL }
             },
             new object[] {
-                (ulong)1188511880, (ulong)1188511890, new[] { (ulong)1188511885 }
+                1188511880UL, 1188511890UL, new[] { 1188511885UL }
             },
             new object[] {
-                (ulong)222220, (ulong)222224, new[] { (ulong)222222 }
+                222220UL, 222224UL, new[] { 222222UL }
             },
             new object[] {
-                (ulong)1698522, (ulong)1698528, Array.Empty<ulong>()
+                1698522UL, 1698528UL, Array.Empty<ulong>()
             },
             new object[] {
-                (ulong)446443, (ulong)446449, new[] { (ulong)446446 }
+                446443UL, 446449UL, new[] { 446446UL }
             },
             new object[] {
-                (ulong)38593856, (ulong)38593862, new[] { (ulong)38593859 }
+                38593856UL, 38593862UL, new[] { 38593859UL }
             },
         };
     }
