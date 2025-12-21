@@ -4,12 +4,9 @@ public class InvalidIdFinder {
     public ulong[][] GetInvalidIdsForRanges(ulong[][] ranges) {
         var invalidIdsForRanges = new List<ulong[]>();
 
-        foreach (ulong[] range in ranges) {
-            var invalidIdsForRange = this.GetInvalidIds(range[0], range[1]);
-            invalidIdsForRanges.Add(invalidIdsForRange);
-        }
-
-        return invalidIdsForRanges.ToArray();
+        return ranges
+            .Select(range => this.GetInvalidIds(range[0], range[1]))
+            .ToArray();
     }
 
     public ulong[] GetInvalidIds(ulong start, ulong end) {
