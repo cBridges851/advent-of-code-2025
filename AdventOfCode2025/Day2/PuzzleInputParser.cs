@@ -1,6 +1,5 @@
 ﻿public class PuzzleInputParser {
     public ulong[][] Parse(string productIdsAsString) {
-        var allProductIdsRanges = new List<ulong[]>();
         return productIdsAsString
             .Split(',')
             .Select(range => { 
