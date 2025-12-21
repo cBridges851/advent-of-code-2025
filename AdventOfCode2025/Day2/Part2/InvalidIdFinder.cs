@@ -23,7 +23,7 @@ public class InvalidIdFinder : InvalidIdFinderBase {
                     subStrings.Add(subString);
                 }
 
-                if (subStrings.All(x => x == subStrings.First())) {
+                if (subStrings.Count == 1) {
                     invalidIds.Add(i);
                     break;
                 }
