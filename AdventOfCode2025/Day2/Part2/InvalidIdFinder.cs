@@ -1,7 +1,7 @@
 ﻿namespace Day2.Part2;
 
 public class InvalidIdFinder {
-    public ulong[][] GetInvalidIdsForRange(ulong[][] ranges) {
+    public ulong[][] GetInvalidIdsForRanges(ulong[][] ranges) {
         var invalidIdsForRanges = new List<ulong[]>();
 
         foreach (ulong[] range in ranges) {

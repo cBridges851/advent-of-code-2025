@@ -1,9 +1,7 @@
 ﻿namespace Day2.Part1;
 
-using System.Text.RegularExpressions;
-
 public class InvalidIdFinder {
-    public ulong[][] GetInvalidIdsForRange(ulong[][] ranges) {
+    public ulong[][] GetInvalidIdsForRanges(ulong[][] ranges) {
         var invalidIdsForRanges = new List<ulong[]>();
 
         foreach (ulong[] range in ranges) {
@@ -24,7 +22,6 @@ public class InvalidIdFinder {
                 continue;
             }
 
-            // Split the string into two equal halves
             int half = currentNumberAsString.Length / 2;
             var firstHalf = currentNumberAsString.Substring(0, half);
             var secondHalf = currentNumberAsString.Substring(half, half);
@@ -32,9 +29,6 @@ public class InvalidIdFinder {
             if (firstHalf == secondHalf) {
                 invalidIds.Add(i);
             }
-
-            // If length of each half is odd number, split by 1
-            // If length of each half is even number, split by 2
         }
 
         return invalidIds.ToArray();

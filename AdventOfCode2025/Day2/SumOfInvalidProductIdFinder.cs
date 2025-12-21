@@ -1,8 +1,5 @@
-﻿using System.Linq;
-
-public class SumOfInvalidProductIdFinder {
+﻿public class SumOfInvalidProductIdFinder {
     public ulong Calculate(ulong[][] invalidIds) {
-        // Cast to long to use LINQ Sum extension method
-        return (ulong)invalidIds.SelectMany(x => x).Select(id => (long)id).Sum();
+        return invalidIds.SelectMany(x => x).Aggregate<ulong, ulong>(0, (current, id) => current + id);
     }
 }

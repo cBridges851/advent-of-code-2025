@@ -6,23 +6,22 @@
         public void Setup() {
             var puzzleInput = "11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-1698528,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124";
             var parsedInput = new PuzzleInputParser().Parse(puzzleInput);
-            var invalidIds = new InvalidIdFinder().GetInvalidIdsForRange(parsedInput);
+            var invalidIds = new InvalidIdFinder().GetInvalidIdsForRanges(parsedInput);
             this.result = new SumOfInvalidProductIdFinder().Calculate(invalidIds);
         }
 
         [Test]
         public void ThenItCorrectlyReturnsTheSumOfInvalidIds() {
-            Assert.That(this.result, Is.EqualTo(1227775554));
+            Assert.That(this.result, Is.EqualTo(4174379265));
         }
     }
 
     public class WhenFindingInvalidIds {
-        [TestCaseSource(nameof(this.TestCases))]
+        [TestCaseSource(nameof(TestCases))]
         public void ThenItCorrectlyFindsNumbersInTheRangeThatHasARepeatingPatternAtLeastTwice(ulong firstId, ulong secondId, ulong[] expectedIds) {
             var result = new InvalidIdFinder().GetInvalidIds(firstId, secondId);
             Assert.That(result, Is.EqualTo(expectedIds));
         }
-    
 
         private static readonly object[] TestCases = {
             new object[] {
