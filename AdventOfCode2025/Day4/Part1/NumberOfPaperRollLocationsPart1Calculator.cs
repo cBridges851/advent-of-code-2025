@@ -1,8 +1,8 @@
-﻿namespace Day4 {
-    internal class NumberOfPaperRollLocationsCalculator {
+﻿namespace Day4.Part1 {
+    internal class NumberOfPaperRollLocationsPart1Calculator {
         public int MaximumAdjacentPaperRollsExclusive { get; set; }
 
-        public NumberOfPaperRollLocationsCalculator(int maxAdjacentPaperRollsExclusive) {
+        public NumberOfPaperRollLocationsPart1Calculator(int maxAdjacentPaperRollsExclusive) {
             this.MaximumAdjacentPaperRollsExclusive = maxAdjacentPaperRollsExclusive;
         }
 
