@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace Day4.Part2 {
+﻿namespace Day4.Part2 {
     internal class NumberOfPaperRollLocationsPart2Calculator {
         public int MaximumAdjacentPaperRollsExclusive { get; set; }
 
@@ -24,21 +22,7 @@ namespace Day4.Part2 {
                             continue;
                         }
 
-                        var surroundingRefs = new List<char>();
-                        var topLeft = currentRow > 0 && currentCol > 0 ? grid[currentRow - 1][currentCol - 1] : ' ';
-                        var topMiddle = currentRow > 0 ? grid[currentRow - 1][currentCol] : ' ';
-                        var topRight = currentRow > 0 && currentCol < grid[currentRow].Length - 1 ? grid[currentRow - 1][currentCol + 1] : ' ';
-                        var middleLeft = currentCol > 0 ? grid[currentRow][currentCol - 1] : ' ';
-                        var middleRight = currentCol < grid[currentRow].Length - 1 ? grid[currentRow][currentCol + 1] : ' ';
-                        var bottomLeft = currentRow < grid.Length - 1 && currentCol > 0 ? grid[currentRow + 1][currentCol - 1] : ' ';
-                        var bottomMiddle = currentRow < grid.Length - 1 ? grid[currentRow + 1][currentCol] : ' ';
-                        var bottomRight = currentRow < grid.Length - 1 && currentCol < grid[currentRow].Length - 1 ? grid[currentRow + 1][currentCol + 1] : ' ';
-
-                        var surroundingCells = new[] {
-                            topLeft, topMiddle, topRight,
-                            middleLeft, middleRight,
-                            bottomLeft, bottomMiddle, bottomRight
-                        };
+                        var surroundingCells = this.GetSurroundingCells(currentRow, currentCol, grid);
 
                         var numberOfRollsInAdjacentPositions = surroundingCells.Count(cell => cell == '@');
 
@@ -50,18 +34,34 @@ namespace Day4.Part2 {
 
                 }
 
-                foreach (var (row, col) in cellsToRemove) {
-                    grid[row][col] = 'x';
-                }
-
+                this.RemoveRollsInGrid(ref grid, cellsToRemove);
                 totalNumberOfRollsThatCanBeAccessed += numberOfRollsThatCanBeAccessedCurrently;
             } while (numberOfRollsThatCanBeAccessedCurrently > 0);
 
-
-            //var numberOfRollsAfterRemoval = this.Calculate(grid);
-            //return totalNumberOfRollsThatCanBeAccessedCurrently + numberOfRollsAfterRemoval;
             return totalNumberOfRollsThatCanBeAccessed;
         }
 
+        private char[] GetSurroundingCells(int currentRow, int currentCol, char[][] grid) {
+            var topLeft = currentRow > 0 && currentCol > 0 ? grid[currentRow - 1][currentCol - 1] : ' ';
+            var topMiddle = currentRow > 0 ? grid[currentRow - 1][currentCol] : ' ';
+            var topRight = currentRow > 0 && currentCol < grid[currentRow].Length - 1 ? grid[currentRow - 1][currentCol + 1] : ' ';
+            var middleLeft = currentCol > 0 ? grid[currentRow][currentCol - 1] : ' ';
+            var middleRight = currentCol < grid[currentRow].Length - 1 ? grid[currentRow][currentCol + 1] : ' ';
+            var bottomLeft = currentRow < grid.Length - 1 && currentCol > 0 ? grid[currentRow + 1][currentCol - 1] : ' ';
+            var bottomMiddle = currentRow < grid.Length - 1 ? grid[currentRow + 1][currentCol] : ' ';
+            var bottomRight = currentRow < grid.Length - 1 && currentCol < grid[currentRow].Length - 1 ? grid[currentRow + 1][currentCol + 1] : ' ';
+
+            return new[] {
+                topLeft, topMiddle, topRight,
+                middleLeft, middleRight,
+                bottomLeft, bottomMiddle, bottomRight
+            };
+        }
+
+        private void RemoveRollsInGrid(ref char[][]grid, List<(int, int)> cellsToRemove) { 
+            foreach (var (row, col) in cellsToRemove) {
+                grid[row][col] = 'x';
+            }
+        }
     }
 }
