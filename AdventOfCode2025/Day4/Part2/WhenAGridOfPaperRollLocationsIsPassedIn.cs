@@ -3,7 +3,7 @@ namespace Day4.Part2 {
         private int result;
 
         /// <summary>
-        /// Initialises the test fixture by computing the number of paper roll locations for a sample grid using a calculator configured with an exclusive adjacent-roll limit of 4.
+        /// Initializes the test fixture by computing the number of paper roll locations for a sample grid using a calculator configured with an exclusive adjacent-roll limit of 4.
         /// </summary>
         /// <remarks>
         /// The computed value is stored in the private field <c>result</c>.
