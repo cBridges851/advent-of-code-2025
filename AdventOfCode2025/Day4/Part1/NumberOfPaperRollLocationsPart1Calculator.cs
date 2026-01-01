@@ -3,7 +3,7 @@ namespace Day4.Part1 {
         public int MaximumAdjacentPaperRollsExclusive { get; set; }
 
         /// <summary>
-        /// Initialises the calculator with the exclusive threshold for adjacent paper rolls.
+        /// Initializes the calculator with the exclusive threshold for adjacent paper rolls.
         /// </summary>
         /// <param name="maxAdjacentPaperRollsExclusive">The exclusive threshold for adjacent '@' cells; a paper roll is considered accessible if it has fewer adjacent '@' cells than this value.</param>
         public NumberOfPaperRollLocationsPart1Calculator(int maxAdjacentPaperRollsExclusive) {

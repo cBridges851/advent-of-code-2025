@@ -3,7 +3,7 @@ namespace Day4.Part2 {
         public int MaximumAdjacentPaperRollsExclusive { get; set; }
 
         /// <summary>
-        /// Initialises the calculator with the exclusive threshold for adjacent paper rolls used to determine accessibility.
+        /// Initializes the calculator with the exclusive threshold for adjacent paper rolls used to determine accessibility.
         /// </summary>
         /// <param name="maxAdjacentPaperRollsExclusive">The exclusive upper bound on adjacent '@' cells; a roll with fewer adjacent rolls than this value is considered accessible.</param>
         public NumberOfPaperRollLocationsPart2Calculator(int maxAdjacentPaperRollsExclusive) {
@@ -11,7 +11,7 @@ namespace Day4.Part2 {
         }
 
         /// <summary>
-        /// Calculate the total number of paper rolls that become accessible and are removed from the grid according to the configured adjacency threshold.
+        /// Calculates the total number of paper rolls that become accessible and are removed from the grid according to the configured adjacency threshold.
         /// </summary>
         /// <param name="grid">A 2D character grid where '@' denotes a paper roll and 'x' denotes an empty/removed cell; the grid is modified in place as rolls are removed.</param>
         /// <returns>The total count of paper rolls removed from the grid.</returns>
