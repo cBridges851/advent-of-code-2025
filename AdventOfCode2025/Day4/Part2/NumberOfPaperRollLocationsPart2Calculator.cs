@@ -1,5 +1,5 @@
 ﻿namespace Day4.Part2 {
-    internal class NumberOfPaperRollLocationsPart2Calculator {
+    internal class NumberOfPaperRollLocationsPart2Calculator : NumberOfPaperRollLocationsCalculatorBase {
         public int MaximumAdjacentPaperRollsExclusive { get; set; }
 
         public NumberOfPaperRollLocationsPart2Calculator(int maxAdjacentPaperRollsExclusive) {
@@ -31,7 +31,6 @@
                             cellsToRemove.Add((currentRow, currentCol));
                         }
                     }
-
                 }
 
                 this.RemoveRollsInGrid(ref grid, cellsToRemove);
@@ -39,23 +38,6 @@
             } while (numberOfRollsThatCanBeAccessedCurrently > 0);
 
             return totalNumberOfRollsThatCanBeAccessed;
-        }
-
-        private char[] GetSurroundingCells(int currentRow, int currentCol, char[][] grid) {
-            var topLeft = currentRow > 0 && currentCol > 0 ? grid[currentRow - 1][currentCol - 1] : ' ';
-            var topMiddle = currentRow > 0 ? grid[currentRow - 1][currentCol] : ' ';
-            var topRight = currentRow > 0 && currentCol < grid[currentRow].Length - 1 ? grid[currentRow - 1][currentCol + 1] : ' ';
-            var middleLeft = currentCol > 0 ? grid[currentRow][currentCol - 1] : ' ';
-            var middleRight = currentCol < grid[currentRow].Length - 1 ? grid[currentRow][currentCol + 1] : ' ';
-            var bottomLeft = currentRow < grid.Length - 1 && currentCol > 0 ? grid[currentRow + 1][currentCol - 1] : ' ';
-            var bottomMiddle = currentRow < grid.Length - 1 ? grid[currentRow + 1][currentCol] : ' ';
-            var bottomRight = currentRow < grid.Length - 1 && currentCol < grid[currentRow].Length - 1 ? grid[currentRow + 1][currentCol + 1] : ' ';
-
-            return new[] {
-                topLeft, topMiddle, topRight,
-                middleLeft, middleRight,
-                bottomLeft, bottomMiddle, bottomRight
-            };
         }
 
         private void RemoveRollsInGrid(ref char[][]grid, List<(int, int)> cellsToRemove) { 
