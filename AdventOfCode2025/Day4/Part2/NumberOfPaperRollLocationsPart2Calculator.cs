@@ -36,19 +36,20 @@ namespace Day4.Part2 {
                     }
                 }
 
-                this.RemoveRollsInGrid(ref grid, cellsToRemove);
+                this.RemoveRollsInGrid(grid, cellsToRemove);
                 totalNumberOfRollsThatCanBeAccessed += numberOfRollsThatCanBeAccessedCurrently;
             } while (numberOfRollsThatCanBeAccessedCurrently > 0);
 
             return totalNumberOfRollsThatCanBeAccessed;
         }
 
+        private void RemoveRollsInGrid(char[][] grid, List<(int, int)> cellsToRemove) { 
         /// <summary>
         /// Mark the specified cells in the grid as removed by setting them to 'x'.
         /// </summary>
         /// <param name="grid">Reference to the 2D character grid representing paper roll locations; cells listed in <paramref name="cellsToRemove"/> will be updated.</param>
         /// <param name="cellsToRemove">List of (row, column) coordinates to mark as removed.</param>
-        private void RemoveRollsInGrid(ref char[][]grid, List<(int, int)> cellsToRemove) { 
+        private void RemoveRollsInGrid(char[][] grid, List<(int, int)> cellsToRemove) { 
             foreach (var (row, col) in cellsToRemove) {
                 grid[row][col] = 'x';
             }
