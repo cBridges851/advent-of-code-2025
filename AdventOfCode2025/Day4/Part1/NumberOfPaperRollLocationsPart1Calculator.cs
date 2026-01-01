@@ -21,7 +21,7 @@ namespace Day4.Part1 {
 
                     var surroundingCells = this.GetSurroundingCells(currentRow, currentCol, grid);
 
-                    var numberOfRollsInAdjacentPositions = surroundingCells.Count(cell => cell == '@');
+                    var numberOfRollsInAdjacentPositions = surroundingCells.Count(surroundingCell => surroundingCell == '@');
 
                     if (numberOfRollsInAdjacentPositions < this.MaximumAdjacentPaperRollsExclusive) {
                         totalNumberOfRollsThatCanBeAccessed++;
