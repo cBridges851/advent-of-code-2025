@@ -1,13 +1,7 @@
 namespace Day4.Part2 {
     internal class NumberOfPaperRollLocationsPart2Calculator : NumberOfPaperRollLocationsCalculatorBase {
-        public int MaximumAdjacentPaperRollsExclusive { get; set; }
 
-        /// <summary>
-        /// Initializes the calculator with the exclusive threshold for adjacent paper rolls used to determine accessibility.
-        /// </summary>
-        /// <param name="maxAdjacentPaperRollsExclusive">The exclusive upper bound on adjacent '@' cells; a roll with fewer adjacent rolls than this value is considered accessible.</param>
-        public NumberOfPaperRollLocationsPart2Calculator(int maxAdjacentPaperRollsExclusive) {
-            this.MaximumAdjacentPaperRollsExclusive = maxAdjacentPaperRollsExclusive;
+        public NumberOfPaperRollLocationsPart2Calculator(int maxAdjacentPaperRollsExclusive) : base(maxAdjacentPaperRollsExclusive) {
         }
 
         /// <summary>

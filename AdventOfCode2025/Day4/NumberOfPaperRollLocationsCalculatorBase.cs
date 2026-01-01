@@ -4,6 +4,12 @@ using System.Text;
 
 namespace Day4 {
     internal class NumberOfPaperRollLocationsCalculatorBase {
+        public readonly int MaximumAdjacentPaperRollsExclusive;
+
+        public NumberOfPaperRollLocationsCalculatorBase(int maxAdjacentPaperRollsExclusive) {
+            this.MaximumAdjacentPaperRollsExclusive = maxAdjacentPaperRollsExclusive;
+        }
+
         /// <summary>
         /// Collects the eight neighbouring cells around the specified grid position.
         /// </summary>
