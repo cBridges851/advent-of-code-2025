@@ -1,7 +1,13 @@
-﻿namespace Day4.Part1 {
+namespace Day4.Part1 {
     public class WhenAGridOfPaperRollLocationsIsPassedIn {
         private int result;
 
+        /// <summary>
+        /// Initialises the test fixture by computing the number of paper-roll locations for a predefined grid.
+        /// </summary>
+        /// <remarks>
+        /// Converts a hard-coded multi-line grid to a 2D array and stores the calculated count (using an exclusive adjacent limit of 4) in the private `result` field for use by the tests.
+        /// </remarks>
         [OneTimeSetUp]
         public void OneTimeSetUp() {
             var puzzleInput = """
