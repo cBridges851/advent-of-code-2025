@@ -5,8 +5,8 @@ namespace Day4 {
         /// </summary>
         /// <param name="grid">The grid as a single string with rows separated by the newline character ('\n').</param>
         /// <returns>A jagged char[][] where each element is the characters of the corresponding input row (trimmed of surrounding whitespace).</returns>
-        public static char[][] ConvertTo2DArray(string grid) { 
-            var rows = grid.Split('\n');
+        public static char[][] ConvertTo2DArray(string grid) {
+            var rows = grid.Split(['\r', '\n'], StringSplitOptions.RemoveEmptyEntries);
             return ConvertTo2DArray(rows);
         }
 

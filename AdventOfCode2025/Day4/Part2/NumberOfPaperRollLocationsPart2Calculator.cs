@@ -43,7 +43,6 @@ namespace Day4.Part2 {
             return totalNumberOfRollsThatCanBeAccessed;
         }
 
-        private void RemoveRollsInGrid(char[][] grid, List<(int, int)> cellsToRemove) { 
         /// <summary>
         /// Mark the specified cells in the grid as removed by setting them to 'x'.
         /// </summary>
