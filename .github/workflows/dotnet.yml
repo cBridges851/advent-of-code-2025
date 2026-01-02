@@ -5,7 +5,7 @@ name: .NET
 
 defaults:
   run: 
-    working-directory: ./AdventOfCode
+    working-directory: ./AdventOfCode2025
 
 on:
   push:
