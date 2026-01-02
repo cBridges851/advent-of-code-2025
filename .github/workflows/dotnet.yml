@@ -3,6 +3,10 @@
 
 name: .NET
 
+defaults:
+  run: 
+    working-directory: ./AdventOfCode
+
 on:
   push:
     branches: [ "master" ]
