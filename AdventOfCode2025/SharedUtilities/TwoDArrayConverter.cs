@@ -30,6 +30,11 @@ namespace SharedUtilities {
 
             for (var currentRowIndex = 0; currentRowIndex < gridRows.Length; currentRowIndex++) {
                 var currentRow = gridRows[currentRowIndex];
+
+                if (currentRow == null) {
+                    throw new ArgumentException($"Element at index {currentRowIndex} in gridRows cannot be null.", nameof(gridRows));
+                }
+                
                 twoDArray[currentRowIndex] = currentRow.Trim().ToCharArray();
             }
 
@@ -74,6 +79,11 @@ namespace SharedUtilities {
 
             for (var currentRowIndex = 0; currentRowIndex < gridRows.Length; currentRowIndex++) {
                 var currentRow = gridRows[currentRowIndex];
+                
+                if (currentRow == null) {
+                    throw new ArgumentException($"Element at index {currentRowIndex} in gridRows cannot be null.", nameof(gridRows));
+                }
+
                 twoDArray[currentRowIndex] = currentRow.Trim().Split(columnSeparator, StringSplitOptions.RemoveEmptyEntries);
             }
 

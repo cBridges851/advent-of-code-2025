@@ -112,7 +112,7 @@ namespace SharedUtilities.Test.UsingTheTwoDArrayConverter {
         public void ThenItThrowsOnNullElementInArray() {
             var gridRows = new[] { "ABC", null, "DEF" };
 
-            Assert.Throws<NullReferenceException>(() => TwoDArrayConverter.ConvertTo2DArray(gridRows));
+            Assert.Throws<ArgumentException>(() => TwoDArrayConverter.ConvertTo2DArray(gridRows));
         }
     }
 }
