@@ -20,13 +20,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Using Include="NUnit.Framework" />
+    <ProjectReference Include="..\SharedUtilities\SharedUtilities.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="puzzleInput.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <Using Include="NUnit.Framework" />
   </ItemGroup>
 
 </Project>

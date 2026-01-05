@@ -1,6 +1,6 @@
-﻿using Day4;
-using Day4.Part1;
+﻿using Day4.Part1;
 using Day4.Part2;
+using SharedUtilities;
 
 var file = "puzzleInput.txt";
 
