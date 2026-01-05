@@ -1,10 +1,6 @@
 ﻿namespace SharedUtilities.Test.UsingTheTwoDArrayConverter {
     public class WhenAStringIsPassedInWithASeparator {
 
-        [SetUp]
-        public void Setup() {
-        }
-
         [Test]
         public void ThenItIsConvertedToA2DArray() {
             var grid = "1,2,3\n4,5,6\n7,8,9";
