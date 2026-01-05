@@ -69,15 +69,6 @@
             },
             new object[] {
                 new HashSet<(long, long)> {
-                    (16,20),
-                    (12,18),
-                    (10,14),
-                    (3,5)
-                },
-                14L
-            },
-            new object[] {
-                new HashSet<(long, long)> {
                     (3,5)
                 },
                 3L

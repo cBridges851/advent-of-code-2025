@@ -13,4 +13,4 @@ var numberOfFreshIngredientsCalculator = new NumberOfFreshIngredientsCalculator(
 var numberOfFreshIngredients = numberOfFreshIngredientsCalculator.CalculateNumberOfRequestedIngredientsThatAreFresh(requestedIngredients);
 var totalNumberOfFreshIngredients = numberOfFreshIngredientsCalculator.TotalNumberOfFreshIngredientsInInventory();
 Console.WriteLine($"Number of fresh ingredients: {numberOfFreshIngredients}");
-Console.WriteLine($"Total number of fresh ingredients in inventory {totalNumberOfFreshIngredients}");
+Console.WriteLine($"Total number of fresh ingredients in inventory: {totalNumberOfFreshIngredients}");
