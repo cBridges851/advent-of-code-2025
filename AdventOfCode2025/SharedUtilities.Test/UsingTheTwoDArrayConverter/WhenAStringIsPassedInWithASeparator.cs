@@ -107,5 +107,109 @@
             Assert.That(result[0], Is.EqualTo(new[] { "one", "two", "three" }));
             Assert.That(result[1], Is.EqualTo(new[] { "four", "five", "six" }));
         }
+
+        [Test]
+        public void ThenItHandlesEmptyStringInput() {
+            var grid = "";
+            var separator = ",";
+
+            var result = TwoDArrayConverter.ConvertTo2DArray(grid, separator);
+
+            Assert.That(result.Length, Is.EqualTo(0));
+        }
+
+        [Test]
+        public void ThenItThrowsOnNullGridInput() {
+            string grid = null;
+            var separator = ",";
+
+            Assert.Throws<ArgumentNullException>(() => TwoDArrayConverter.ConvertTo2DArray(grid, separator));
+        }
+
+        [Test]
+        public void ThenItThrowsOnNullSeparatorInput() {
+            var grid = "1,2,3\n4,5,6";
+            string separator = null;
+
+            Assert.Throws<ArgumentNullException>(() => TwoDArrayConverter.ConvertTo2DArray(grid, separator));
+        }
+
+        [Test]
+        public void ThenItThrowsOnNullGridRowsArrayInput() {
+            string[] gridRows = null;
+            var separator = ",";
+
+            Assert.Throws<ArgumentNullException>(() => TwoDArrayConverter.ConvertTo2DArray(gridRows, separator));
+        }
+
+        [Test]
+        public void ThenItHandlesSeparatorThatDoesNotExistInInput() {
+            var grid = "1,2,3\n4,5,6";
+            var separator = "|";
+
+            var result = TwoDArrayConverter.ConvertTo2DArray(grid, separator);
+
+            Assert.That(result.Length, Is.EqualTo(2));
+            Assert.That(result[0], Is.EqualTo(new[] { "1,2,3" }));
+            Assert.That(result[1], Is.EqualTo(new[] { "4,5,6" }));
+        }
+
+        [Test]
+        public void ThenItHandlesEmptySeparatorString() {
+            var grid = "abc\ndef";
+            var separator = "";
+
+            var result = TwoDArrayConverter.ConvertTo2DArray(grid, separator);
+
+            Assert.That(result.Length, Is.EqualTo(2));
+            Assert.That(result[0], Is.EqualTo(new[] { "abc" }));
+            Assert.That(result[1], Is.EqualTo(new[] { "def" }));
+        }
+
+        [Test]
+        public void ThenItHandlesGridWithOnlyNewlines() {
+            var grid = "\n\n\n";
+            var separator = ",";
+
+            var result = TwoDArrayConverter.ConvertTo2DArray(grid, separator);
+
+            Assert.That(result.Length, Is.EqualTo(0));
+        }
+
+        [Test]
+        public void ThenItHandlesExcessiveLeadingNewlines() {
+            var grid = "\n\n\n1,2,3\n4,5,6";
+            var separator = ",";
+
+            var result = TwoDArrayConverter.ConvertTo2DArray(grid, separator);
+
+            Assert.That(result.Length, Is.EqualTo(2));
+            Assert.That(result[0], Is.EqualTo(new[] { "1", "2", "3" }));
+            Assert.That(result[1], Is.EqualTo(new[] { "4", "5", "6" }));
+        }
+
+        [Test]
+        public void ThenItHandlesExcessiveTrailingNewlines() {
+            var grid = "1,2,3\n4,5,6\n\n\n";
+            var separator = ",";
+
+            var result = TwoDArrayConverter.ConvertTo2DArray(grid, separator);
+
+            Assert.That(result.Length, Is.EqualTo(2));
+            Assert.That(result[0], Is.EqualTo(new[] { "1", "2", "3" }));
+            Assert.That(result[1], Is.EqualTo(new[] { "4", "5", "6" }));
+        }
+
+        [Test]
+        public void ThenItHandlesExcessiveLeadingAndTrailingNewlines() {
+            var grid = "\n\n1,2,3\n4,5,6\n\n";
+            var separator = ",";
+
+            var result = TwoDArrayConverter.ConvertTo2DArray(grid, separator);
+
+            Assert.That(result.Length, Is.EqualTo(2));
+            Assert.That(result[0], Is.EqualTo(new[] { "1", "2", "3" }));
+            Assert.That(result[1], Is.EqualTo(new[] { "4", "5", "6" }));
+        }
     }
 }
