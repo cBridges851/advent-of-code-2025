@@ -68,7 +68,7 @@ namespace SharedUtilities {
         /// <returns>A jagged string[][] where each element is an array of column values split by the separator from the corresponding trimmed input row.</returns>
         public static string[][] ConvertTo2DArray(string[] gridRows, string columnSeparator) {
             if (gridRows == null) {
-                throw new ArgumentNullException(nameof(gridRows), "Input grid string cannot be null.");
+                throw new ArgumentNullException(nameof(gridRows), "Input grid rows cannot be null.");
             }
 
             if (columnSeparator == null) {
