@@ -1,6 +1,4 @@
-﻿using SharedUtilities;
-
-namespace SharedUtilities.Test.UsingTheTwoDArrayConverter {
+﻿namespace SharedUtilities.Test.UsingTheTwoDArrayConverter {
     public class WhenAStringIsPassedInWithASeparator {
 
         [SetUp]
