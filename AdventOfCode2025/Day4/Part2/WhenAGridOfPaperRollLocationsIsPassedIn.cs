@@ -1,3 +1,5 @@
+using SharedUtilities;
+
 namespace Day4.Part2 {
     public class WhenAGridOfPaperRollLocationsIsPassedIn {
         private int result;

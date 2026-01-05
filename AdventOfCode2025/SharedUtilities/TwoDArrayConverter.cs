@@ -1,5 +1,5 @@
-namespace Day4 {
-    internal static class TwoDArrayConverter {
+namespace SharedUtilities {
+    public static class TwoDArrayConverter {
         /// <summary>
         /// Converts a newline-delimited string representation of a grid into a jagged 2D char array.
         /// </summary>
@@ -21,6 +21,22 @@ namespace Day4 {
             for (var currentRowIndex = 0; currentRowIndex < gridRows.Length; currentRowIndex++) {
                 var currentRow = gridRows[currentRowIndex];
                 twoDArray[currentRowIndex] = currentRow.Trim().ToCharArray();
+            }
+
+            return twoDArray;
+        }
+
+        public static string[][] ConvertTo2DArray(string grid, string columnSeparator) { 
+            var rows = grid.Split(['\r', '\n'], StringSplitOptions.RemoveEmptyEntries);
+            return ConvertTo2DArray(rows, columnSeparator);
+        }
+
+        public static string[][] ConvertTo2DArray(string[] gridRows, string columnSeparator) { 
+            var twoDArray = new string[gridRows.Length][];
+
+            for (var currentRowIndex = 0; currentRowIndex < gridRows.Length; currentRowIndex++) {
+                var currentRow = gridRows[currentRowIndex];
+                twoDArray[currentRowIndex] = currentRow.Trim().Split(columnSeparator, StringSplitOptions.RemoveEmptyEntries);
             }
 
             return twoDArray;
